@@ -1,0 +1,278 @@
+/*  
+Project Name: To-Do App (JS)
+Project URI: 
+Description: I have made the To-Do app for educational purposes only. You are free to use or modify it with your projects without any warranty. Give me a thumbs-up, If you like it. Enjoy!
+Author: Abdul Samad
+Author URI: https://getabdulsamad.com/
+Tags: Mobile-friendly, All-Devices-Supported. 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f1c40f;
+  color: #081c15;
+  letter-spacing: 0.3px;
+}
+
+button:focus {
+  outline: none;
+}
+
+section {
+  display: block;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+section h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+form#todoForm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border-radius: 0.25rem;
+  // padding: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: #343018c2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form#todoForm #todoField {
+  padding: 10px 10px;
+  flex: 1;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  outline: none;
+  &:focus {
+    outline: none;
+    border: 0;
+  }
+}
+
+form#todoForm button {
+  font-size: 0;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 5px;
+  background-color: #081c15;
+  border-radius: 0 0.25rem 0.25rem 0;
+  height: 45px;
+  width: 45px;
+}
+
+.listedItemsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-top: 20px;
+}
+
+.listedItemsTitle {
+  flex: 6;
+  text-align: left;
+}
+
+.customizerBox {
+  flex: 6;
+  text-align: right;
+}
+
+.customizerBox button {
+  background-color: transparent;
+  border: 0;
+  font-size: 0;
+  cursor: pointer;
+  margin-right: 5px;
+  &::before {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  &:last-child {
+    margin-right: 0px;
+    &::before {
+      position: relative;
+      top: -1px;
+    }
+  }
+}
+
+form#todoForm button::before {
+  font-size: 16px;
+  background: transparent;
+  padding: 10px 10px;
+  display: inline-block;
+}
+
+#tdtime {
+  display: grid;
+  height: auto;
+  color: #fff;
+  align-content: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #081c15 50%, #fff 50%);
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+#tdtime span:first-child {
+  display: block;
+  text-align: center;
+  background-color: #081c15;
+  color: #fff;
+  position: relative;
+  padding: 5px 10px;
+  width: 50px;
+  border-radius: 0.25rem 0 0 0;
+}
+
+#tdtime span {
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  color: #081c15;
+  padding: 3px 5px;
+  width: 50px;
+  border-radius: 0 0 0 0.25rem;
+}
+
+ul#todoList {
+  list-style: none;
+}
+
+ul#todoList li {
+  background-color: #e67e22;
+  margin: 10px 0;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border-radius: 0.25rem;
+  //padding: 0 10px 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0 15px;
+  text-align: center;
+  #tdtime > span:first-child {
+    border-radius: 0;
+  }
+  #tdtime > span:last-child {
+    border-radius: 0 0 0.25rem 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  #tdtime > span:first-child::before {
+    content: "'";
+    display: block;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  #tdtime > span:first-child::after {
+    content: "'";
+    display: block;
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .listItem {
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .itemEntry {
+    display: block;
+  }
+  #tdtime {
+    display: inline-block;
+    background: transparent;
+  }
+  #tdValue {
+    display: block;
+  }
+}
+
+.list .listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 10px 0 0;
+}
+
+.itemEntry {
+  -webkit-box-flex: 6;
+  -ms-flex: 6;
+  flex: 6;
+  display: flex;
+  justify-content: left;
+  align-items: stretch;
+}
+
+#tdValue {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.itemActions button {
+  font-size: 0;
+  border: 1px solid #081c15;
+  background-color: transparent;
+  border-radius: 50px;
+  line-height: 28px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  color: #081c15;
+  opacity: 0.8;
+  &:hover {
+    background-color: #081c15;
+    color: #fff;
+    opacity: 9;
+  }
+  &::before {
+    font-size: 16px;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+ul#todoList li.itemDone {
+  background-color: #c0392b;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+button#doneItem {
+  background-color: #081c15;
+  color: #fff;
+  opacity: 9;
+  pointer-events: none;
+}
+
+// Media Queries
+@media only screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

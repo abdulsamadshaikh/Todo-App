@@ -1,0 +1,339 @@
+/*  
+Project Name: To-Do App (JS)
+Project URI: 
+Description: I have made the To-Do app for educational purposes only. You are free to use or modify it with your projects without any warranty. Give me a thumbs-up, If you like it. Enjoy!
+Author: Abdul Samad
+Author URI: https://getabdulsamad.com/
+Tags: Mobile-friendly, All-Devices-Supported. 
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f1c40f;
+  color: #081c15;
+  letter-spacing: 0.3px;
+}
+
+button:focus {
+  outline: none;
+}
+
+section {
+  display: block;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+section h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+form#todoForm {
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border-radius: 0.25rem;
+  width: 100%;
+  text-align: center;
+  background-color: #343018c2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form#todoForm #todoField {
+  padding: 10px 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  outline: none;
+}
+
+form#todoForm #todoField:focus {
+  outline: none;
+  border: 0;
+}
+
+form#todoForm button {
+  font-size: 0;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 5px;
+  background-color: #081c15;
+  border-radius: 0 0.25rem 0.25rem 0;
+  height: 45px;
+  width: 45px;
+}
+
+.listedItemsHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  padding-top: 20px;
+}
+
+.listedItemsTitle {
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+  text-align: left;
+}
+
+.customizerBox {
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+  text-align: right;
+}
+
+.customizerBox button {
+  background-color: transparent;
+  border: 0;
+  font-size: 0;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.customizerBox button::before {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.customizerBox button:last-child {
+  margin-right: 0px;
+}
+
+.customizerBox button:last-child::before {
+  position: relative;
+  top: -1px;
+}
+
+form#todoForm button::before {
+  font-size: 16px;
+  background: transparent;
+  padding: 10px 10px;
+  display: inline-block;
+}
+
+#tdtime {
+  display: -ms-grid;
+  display: grid;
+  height: auto;
+  color: #fff;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #081c15), color-stop(50%, #fff));
+  background: linear-gradient(180deg, #081c15 50%, #fff 50%);
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+#tdtime span:first-child {
+  display: block;
+  text-align: center;
+  background-color: #081c15;
+  color: #fff;
+  position: relative;
+  padding: 5px 10px;
+  width: 50px;
+  border-radius: 0.25rem 0 0 0;
+}
+
+#tdtime span {
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  color: #081c15;
+  padding: 3px 5px;
+  width: 50px;
+  border-radius: 0 0 0 0.25rem;
+}
+
+ul#todoList {
+  list-style: none;
+}
+
+ul#todoList li {
+  background-color: #e67e22;
+  margin: 10px 0;
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border-radius: 0.25rem;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0 15px;
+  text-align: center;
+}
+
+.grid #tdtime > span:first-child {
+  border-radius: 0;
+}
+
+.grid #tdtime > span:last-child {
+  border-radius: 0 0 0.25rem 0.25rem;
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.grid #tdtime > span:first-child::before {
+  content: "'";
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.grid #tdtime > span:first-child::after {
+  content: "'";
+  display: block;
+  position: absolute;
+  top: -15px;
+  right: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.grid .listItem {
+  padding-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.grid .itemEntry {
+  display: block;
+}
+
+.grid #tdtime {
+  display: inline-block;
+  background: transparent;
+}
+
+.grid #tdValue {
+  display: block;
+}
+
+.list .listItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 10px 0 0;
+}
+
+.itemEntry {
+  -webkit-box-flex: 6;
+  -ms-flex: 6;
+  flex: 6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+#tdValue {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.itemActions button {
+  font-size: 0;
+  border: 1px solid #081c15;
+  background-color: transparent;
+  border-radius: 50px;
+  line-height: 28px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  color: #081c15;
+  opacity: 0.8;
+}
+
+.itemActions button:hover {
+  background-color: #081c15;
+  color: #fff;
+  opacity: 9;
+}
+
+.itemActions button::before {
+  font-size: 16px;
+}
+
+.itemActions button:focus {
+  outline: none;
+}
+
+ul#todoList li.itemDone {
+  background-color: #c0392b;
+  opacity: 0.6;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+button#doneItem {
+  background-color: #081c15;
+  color: #fff;
+  opacity: 9;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .grid {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+/*# sourceMappingURL=main.css.map */

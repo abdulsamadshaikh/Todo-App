@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>JS To-do App</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="sass/main.css">
+  </head>
+  <body>
+
+    <!-- To-do App Section -->
+    <section>
+      <div class="todoAppHeader">
+        <h1>To-Do App</h1>
+      </div>
+      <form id="todoForm">
+        <input id="todoField" type="text" placeholder="Type something here..." autocomplete="off">
+        <button class="fa fa-plus" aria-hidden="true">Create Item</button>
+      </form>
+
+      <div class="listedItemsHeader">
+        <div class="listedItemsTitle">
+          <h3 id="itemsTitle"></h3>
+        </div>
+        <div class="customizerBox">
+          <button class="fa fa-th" aria-hidden="true" onclick="gridCustomizer(this)">Grid</button>
+          <button class="fa fa-list-ul" aria-hidden="true" onclick="listCustomizer(this)">List</button>
+        </div>
+      </div>
+      <ul id="todoList" class="list" onload="onLoadItems()"></ul>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="js/todo.js"></script>
+    <!-- Sweetalert js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- FontAwesome -->
+    <script src="https://use.fontawesome.com/c061578bf9.js"></script>
+  </body>
+</html>
